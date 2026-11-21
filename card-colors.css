@@ -1,0 +1,188 @@
+/* Readability layer: paint properties only. Geometry, typography, and motion
+   remain in styles.css. The plum stage and supplied brand artwork stay intact. */
+:root {
+  --card-paper: #FFF9F5;
+  --card-ivory: #FFFCF9;
+  --card-blush: #FCEBED;
+  --card-peach: #FFF0E5;
+  --card-sage: #EDF4F0;
+  --card-lavender: #F2EEF8;
+  --card-border: #D3BDC4;
+  --card-heading: #2E1422;
+  --card-text: #453640;
+  --card-secondary: #61505A;
+  --card-accent: #7D1D34;
+  --card-shadow: 0 3px 12px rgba(46,20,34,.07), inset 0 0 0 1px rgba(125,29,52,.10);
+}
+
+:where(.presentation[data-layout="panel"], .presentation[data-layout="hero"]) #slide-panel {
+  --ink: var(--card-heading);
+  --muted: var(--card-text);
+  --faint: var(--card-secondary);
+  --line: var(--card-border);
+  color: var(--card-text);
+  background: var(--card-paper);
+  border-color: var(--card-border);
+  box-shadow: 0 22px 60px rgba(14,4,10,.22), inset 0 1px 0 #FFFFFF;
+}
+:where(.presentation[data-layout="panel"], .presentation[data-layout="hero"]) #slide-panel::before {
+  border-color: #E7DADB;
+}
+#slide-panel .eyebrow,
+#slide-panel .slide-sub { color: var(--card-accent); }
+#slide-panel .eyebrow::before { background: var(--card-accent); }
+#slide-panel .slide-body,
+#slide-panel .ask-intro,
+#slide-panel .slide-bullets li,
+#slide-panel .content-item,
+#slide-panel .content-item-detail,
+#slide-panel .impact-list .content-item-detail,
+#slide-panel .market-grid .content-item-detail,
+#slide-panel .feature-grid .content-item-detail { color: var(--card-text); }
+#slide-panel .content-item-heading,
+#slide-panel .card-list .content-item-heading,
+#slide-panel .impact-list .content-item-heading,
+#slide-panel .feature-grid .content-item-heading,
+#slide-panel .market-grid .content-item-heading,
+#slide-panel .business-grid .content-item-heading,
+#slide-panel .collaboration-grid .content-item-heading { color: var(--card-accent); }
+#slide-panel .content-indicator { color: var(--card-accent); stroke: var(--card-accent); }
+
+#slide-panel .content-item,
+#slide-panel .slide-team li {
+  background: var(--card-ivory);
+  border-color: var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+#slide-panel .card-list .content-item:nth-child(3n+1),
+#slide-panel .impact-list .content-item:nth-child(3n+3),
+#slide-panel .business-grid .content-item:nth-child(3n+1),
+#slide-panel .slide-team li:nth-child(3n+1) { background: var(--card-blush); }
+#slide-panel .card-list .content-item:nth-child(3n+2),
+#slide-panel .impact-list .content-item:nth-child(3n+1),
+#slide-panel .feature-grid .content-item:first-child,
+#slide-panel .collaboration-grid .content-item:nth-child(3n+3) { background: var(--card-peach); }
+#slide-panel .feature-grid .content-item:nth-child(3n+2),
+#slide-panel .business-grid .content-item:nth-child(3n+2),
+#slide-panel .collaboration-grid .content-item:nth-child(3n+2),
+#slide-panel .slide-team li:nth-child(3n+2) { background: var(--card-sage); }
+#slide-panel .card-list .content-item:nth-child(3n+3),
+#slide-panel .impact-list .content-item:nth-child(3n+2),
+#slide-panel .feature-grid .content-item:nth-child(3n+3),
+#slide-panel .business-grid .content-item:nth-child(3n+3),
+#slide-panel .collaboration-grid .content-item:nth-child(3n+1),
+#slide-panel .slide-team li:nth-child(3n+3) { background: var(--card-lavender); }
+#slide-panel .story-intro {
+  color: var(--card-text);
+  background: var(--card-peach);
+  border-color: #A95C6C;
+  box-shadow: var(--card-shadow);
+}
+#slide-panel .market-grid {
+  background: var(--card-ivory);
+  border-color: var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+#slide-panel .market-grid .content-item {
+  background: var(--card-ivory);
+  box-shadow: none;
+}
+#slide-panel .market-grid .content-item:nth-child(even) { background: var(--card-sage); }
+#slide-panel .team-name { color: var(--card-heading); }
+#slide-panel .team-role { color: var(--card-secondary); }
+#slide-panel .team-monogram {
+  color: var(--card-accent);
+  background: #F5DBDF;
+  border-color: #AD7583;
+}
+#slide-panel .slide-stat {
+  color: var(--card-text);
+  background: #FFE8DF;
+  border-color: #D2A7A8;
+  box-shadow: var(--card-shadow);
+}
+#slide-panel .stat-value { color: var(--card-accent); }
+#slide-panel .stat-unit { color: #54233A; }
+#slide-panel .stat-label { color: var(--card-secondary); }
+#slide-panel .slide-note {
+  color: var(--card-secondary);
+  background: #F5EEF0;
+  border-color: #9B5267;
+}
+#slide-panel .slide-chip,
+#slide-panel .slide-link {
+  color: var(--card-accent);
+  background: var(--card-blush);
+  border-color: #C3A1AD;
+}
+#slide-panel .slide-link:hover { color: #581127; background: #F4DBE1; }
+#slide-panel .slide-link:focus-visible { outline-color: var(--card-accent); }
+#slide-panel .slide-legend li { color: var(--card-text); }
+#slide-panel .slide-media { border-color: var(--card-border); }
+#slide-panel .market-intro,
+#slide-panel .business-intro,
+#slide-panel .collaboration-intro { border-color: #AD7583; }
+
+/* Labels and controls use the same readable paper/ink pairing as the cards. */
+#presentation .anatomy-marker > span {
+  color: var(--card-heading);
+  background: var(--card-ivory);
+  border-color: #B67C8A;
+  box-shadow: 0 3px 14px rgba(46,20,34,.20);
+  text-shadow: none;
+}
+#presentation .anatomy-marker > span small { color: var(--card-secondary); }
+#presentation .anatomy-marker svg.marker-leader line { stroke: #9D415A; }
+#presentation .anatomy-marker i.marker-ring {
+  background: #FFF0E5;
+  border-color: var(--card-accent);
+  box-shadow: 0 0 0 4px rgba(125,29,52,.18);
+}
+#presentation .controls,
+#presentation .chrome-hide,
+#presentation .chrome-restore,
+#presentation .slide-counter {
+  color: var(--card-heading);
+  background: var(--card-paper);
+  border-color: var(--card-border);
+}
+#presentation .control-button { color: var(--card-heading); }
+#presentation .control-button:hover,
+#presentation .chrome-hide:hover,
+#presentation .chrome-restore:hover { color: var(--card-accent); background: #F3DEE4; }
+#presentation .control-divider { background: #CFB9C0; }
+#presentation .timeline-track { background: #BEA4AE; }
+#presentation .timeline-fill { background: linear-gradient(90deg,#7D1D34,#A54460); }
+#presentation .stage-marker::after { background: var(--card-paper); border-color: #83606E; }
+#presentation .stage-marker.is-active::after {
+  background: var(--card-accent);
+  border-color: var(--card-accent);
+  box-shadow: 0 0 0 4px rgba(125,29,52,.16);
+}
+#presentation .control-button:focus-visible,
+#presentation .stage-marker:focus-visible,
+#presentation .timeline-seek:focus-visible,
+#presentation .chrome-restore:focus-visible { outline-color: var(--card-accent); }
+#presentation .disclaimer {
+  color: var(--card-secondary);
+  background: var(--card-ivory);
+  box-shadow: 0 1px 5px rgba(46,20,34,.12);
+}
+#presentation .model-error {
+  color: #651D35;
+  background: var(--card-blush);
+  border-color: #B66C80;
+}
+
+/* Explanation text in near-black for maximum readability on every slide. */
+#slide-panel .slide-body,
+#slide-panel .content-item-detail,
+#slide-panel .slide-layout--problem .stat-label,
+#slide-panel .team-role { color: #1E0F16; }
+
+#slide-panel .market-ring { color: #1E0F16; border-color: var(--card-border); box-shadow: var(--card-shadow); }
+#slide-panel .market-ring--1 { background: var(--card-peach); }
+#slide-panel .market-ring--2 { background: var(--card-sage); }
+#slide-panel .market-ring--3 { background: var(--card-lavender); }
+#slide-panel .ring-tag { color: var(--card-secondary); }
+#slide-panel .ring-value { color: var(--card-accent); }

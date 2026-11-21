@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="theme-color" content="#2E1422">
+    <meta name="description" content="A continuous illustrative colon journey introducing OREFERA, an oncology documentation and referral platform.">
+    <title>OREFERA — Oncology &amp; referral platform</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css">
+    <link id="card-colors" rel="stylesheet" href="./card-colors.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./presentation.js"></script>
+  </head>
+  <body>
+    <main class="presentation" id="presentation" data-phase="initial" data-tumor-burden="0.16" data-stage="0" data-camera-zoom="1" data-camera-flight="0">
+      <div class="ambient ambient-left" aria-hidden="true"></div>
+      <div class="ambient ambient-stage" aria-hidden="true"></div>
+      <div class="model-shadow" aria-hidden="true"></div>
+      <div class="model-halo" aria-hidden="true"></div>
+
+      <header class="topbar" aria-label="Presentation status">
+        <div class="brand-lockup">
+          <span class="brand-name">OREFERA</span>
+          <span class="brand-subtitle">Oncology &amp; referral platform</span>
+        </div>
+        <div class="topbar-meta">
+          <div class="telemetry">
+            <span class="telemetry-label">Focus</span>
+            <span class="telemetry-value" id="camera-region">Overview</span>
+          </div>
+          <div class="telemetry">
+            <span class="telemetry-label">Zoom</span>
+            <span class="telemetry-value" id="camera-zoom">1.00×</span>
+          </div>
+          <span class="slide-counter" id="slide-counter" aria-live="polite">01 / 10</span>
+        </div>
+      </header>
+
+      <div id="model-view" class="model-view" role="img" aria-label="Synthetic illustrative three-dimensional colon model. Drag to orbit; use a wheel or pinch gesture to zoom." aria-describedby="illustration-note">
+        <div class="model-loading" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+      <div id="anatomy-markers" aria-label="Medical focus markers"></div>
+
+      <aside class="glass-panel" id="slide-panel" aria-label="Presentation chapter">
+        <div id="slide-content" aria-live="polite"></div>
+      </aside>
+
+      <p class="disclaimer" id="illustration-note">Illustrative anatomy. Not patient data or a medical prediction.</p>
+
+      <button class="chrome-hide" type="button" aria-label="Hide presentation controls" title="Hide presentation controls">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M8 12h11M11 17h8"/></svg>
+      </button>
+      <nav class="controls" aria-label="Presentation controls">
+        <button class="control-button previous" type="button" aria-label="Previous chapter">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7"/></svg>
+        </button>
+        <button class="control-button playback-toggle" type="button" aria-label="Pause 3D animation" title="Pause 3D animation — slides stay manual" aria-pressed="true">
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
+        </button>
+        <button class="control-button next" type="button" aria-label="Next chapter">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7"/></svg>
+        </button>
+        <div class="timeline" role="group" aria-label="Presentation chapter track">
+          <div class="timeline-track" aria-hidden="true"></div>
+          <div class="stage-markers" role="group" aria-label="Chapters"></div>
+          <input class="timeline-seek" type="range" min="0" max="420000" step="50" value="0" aria-label="Choose slide position manually">
+          <span class="timeline-fill" aria-hidden="true"></span>
+        </div>
+        <button class="control-button restart" type="button" aria-label="Restart presentation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.8 9a7.5 7.5 0 1 1-.1 5.7M4.8 4.8V9h4.3"/></svg>
+        </button>
+        <span class="control-divider" aria-hidden="true"></span>
+        <button class="control-button fullscreen-toggle" type="button" aria-label="Enter full screen">
+          <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg>
+          <svg class="collapse-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h4V4m8 0v4h4M8 20v-4H4m16 0h-4v4"/></svg>
+        </button>
+      </nav>
+      <button class="chrome-restore" type="button" aria-label="Show presentation controls" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="page-progress" aria-hidden="true"><span></span></div>
+      <div class="model-error" id="model-error" role="status" aria-label="3D model could not be loaded" data-failed="false">The supplied colon illustration could not be loaded. Chapter navigation remains available.</div>
+    </main>
+  </body>
+</html>

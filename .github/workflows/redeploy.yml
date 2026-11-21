@@ -1,0 +1,18 @@
+# When the presentation changes, run the site deploy on main again, so the hosted
+# presentation (https://<user>.github.io/<repo>/presentation/) is updated too.
+name: Redeploy site with the presentation
+
+on:
+  push:
+    branches: [presentation]
+
+permissions:
+  actions: write
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}
